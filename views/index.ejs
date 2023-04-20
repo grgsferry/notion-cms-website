@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#backgrounds">Backgrounds</a></li>
+        <li><a href="#compentencies">Compentencies</a></li>
+        <li><a href="#contactme">Contact Me</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </nav>
+    <hr class="thin-hr" />
+    <div class="container" id="about">
+      <h2>Hi, I am Ferry</h2>
+      <h1>A Tech Enthusiast from Indonesia</h1>
+      <p>
+        As a seasoned professional with experience in finance, education, and technology, I am dedicated to leveraging data, product, technology, and business to create outstanding work results. I welcome all inquiries and opportunities for
+        collaboration, and look forward to hearing from you.
+      </p>
+    </div>
+    <hr class="thin-hr" />
+    <div class="container" id="projects">
+      <h1>Projects</h1>
+      <ul>
+        <% let i = 1 %> <% projectsData.forEach(project => { %>
+        <li>
+          <strong><a><%= project.name %></a></strong
+          ><br />
+          <strong><%= project.year.substring(0,4) %></strong> <br /><small><%= project.details %></small>
+        </li>
+        <% i++ %> <% }) %>
+      </ul>
+      <br />
+    </div>
+    <hr class="thin-hr" />
+    <div class="container" id="backgrounds">
+      <h1>Backgrounds</h1>
+      <div class="column">
+        <h2>Experiences</h2>
+        <ul>
+          <% let j = 1 %> <% experiencesData.forEach(experience => { %>
+          <li>
+            <strong><%= experience.jobTitle %> <br /><%= experience.company %></strong> <br /><small><%= experience.startYear %> - <%= experience.endYear %> </small>
+          </li>
+          <% j++ %> <% }) %>
+        </ul>
+        <br />
+      </div>
+      <div class="column">
+        <h2>Educations</h2>
+        <ul>
+          <% let k = 1 %> <% educationsData.forEach(education => { %>
+          <li>
+            <strong><%= education.major %> <br /><%= education.institution %></strong> <br /><small><%= education.startYear %> - <%= education.endYear %></small> <br /><small><%= education.details %></small>
+          </li>
+          <% k++ %> <% }) %>
+        </ul>
+        <br />
+      </div>
+    </div>
+    <hr class="thin-hr" />
+    <div class="container" id="compentencies">
+      <h1>Compentencies</h1>
+      <div class="container">
+        <div class="column">
+          <h2>Skills</h2>
+          <ul>
+            <% let l = 1 %> <% skillsData.forEach(skill => { %>
+            <li><strong><%= skill.name %></strong> <br /><small><%= skill.details %></small></li>
+            <% l++ %> <% }) %>
+          </ul>
+        </div>
+        <div class="column">
+          <h2>Stacks</h2>
+          <ul>
+            <% let m = 1 %> <% stacksData.forEach(stack => { %>
+            <li><strong><%= stack.name %></strong> <br /><small><%= stack.details %></small></li>
+            <% m++ %> <% }) %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
