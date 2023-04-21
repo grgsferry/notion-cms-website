@@ -29,7 +29,6 @@ async function getProjectsData() {
       details: response.results[i].properties.Details.rich_text[0].plain_text,
     });
   }
-  console.log(arr);
   return arr;
 }
 
@@ -54,7 +53,6 @@ async function getExperiencesData() {
       endYear: response.results[i].properties.EndYear.rich_text[0].plain_text,
     });
   }
-  console.log(arr);
   return arr;
 }
 
@@ -74,13 +72,12 @@ async function getEducationsData() {
     arr.push({
       pageId: response.results[i].id,
       major: response.results[i].properties.Major.title[0].plain_text,
-      company: response.results[i].properties.Institutions.rich_text[0].plain_text,
+      company: response.results[i].properties.Institution.rich_text[0].plain_text,
       startYear: response.results[i].properties.StartYear.rich_text[0].plain_text,
       endYear: response.results[i].properties.EndYear.rich_text[0].plain_text,
       details: response.results[i].properties.Details.rich_text[0].plain_text,
     });
   }
-  console.log(arr);
   return arr;
 }
 
