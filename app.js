@@ -14,12 +14,6 @@ async function getProjectsData() {
   const databaseId = "56907ac77ba44ac5a7948d3de1007469";
   const response = await notion.databases.query({
     database_id: databaseId,
-    sorts: [
-      {
-        property: "Year",
-        direction: "ascending",
-      },
-    ],
   });
   for (let i = 0; i < response.results.length; i++) {
     arr.push({
@@ -39,8 +33,8 @@ async function getExperiencesData() {
     database_id: databaseId,
     sorts: [
       {
-        property: "EndYear",
-        direction: "descending",
+        property: "No",
+        direction: "ascending",
       },
     ],
   });
@@ -51,6 +45,7 @@ async function getExperiencesData() {
       company: response.results[i].properties.Company.rich_text[0].plain_text,
       startYear: response.results[i].properties.StartYear.rich_text[0].plain_text,
       endYear: response.results[i].properties.EndYear.rich_text[0].plain_text,
+      details: response.results[i].properties.Details.rich_text[0].plain_text,
     });
   }
   return arr;
@@ -61,18 +56,12 @@ async function getEducationsData() {
   const databaseId = "ff66d213bc0d4969b734eda4fa9f72e3";
   const response = await notion.databases.query({
     database_id: databaseId,
-    sorts: [
-      {
-        property: "EndYear",
-        direction: "descending",
-      },
-    ],
   });
   for (let i = 0; i < response.results.length; i++) {
     arr.push({
       pageId: response.results[i].id,
       major: response.results[i].properties.Major.title[0].plain_text,
-      company: response.results[i].properties.Institution.rich_text[0].plain_text,
+      institution: response.results[i].properties.Institution.rich_text[0].plain_text,
       startYear: response.results[i].properties.StartYear.rich_text[0].plain_text,
       endYear: response.results[i].properties.EndYear.rich_text[0].plain_text,
       details: response.results[i].properties.Details.rich_text[0].plain_text,
@@ -94,7 +83,6 @@ async function getSkillsData() {
       details: response.results[i].properties.Details.rich_text[0].plain_text,
     });
   }
-  console.log(arr);
   return arr;
 }
 
@@ -111,7 +99,6 @@ async function getStacksData() {
       details: response.results[i].properties.Details.rich_text[0].plain_text,
     });
   }
-  console.log(arr);
   return arr;
 }
 
